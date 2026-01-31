@@ -1,10 +1,9 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 name: velyx
-description: Sistema operacional focado em performance extrema para jogos.
+description: Sistema focado em performance e jogos.
 
-# Base Kinoite (Fedora + KDE Plasma) - A melhor para games
 base-image: ghcr.io/ublue-os/kinoite-main
-image-version: 40 
+image-version: 40
 
 modules:
   - type: files
@@ -14,13 +13,12 @@ modules:
 
   - type: rpm-ostree
     install:
-      - gamescope          # Micro-compositor para rodar jogos igual no Steam Deck
-      - mangohud           # Overlay de FPS e performance
-      - goverlay           # Interface para o Mangohud
-      - steam-devices      # Suporte para controles de Xbox, PlayStation e Switch
-      - fastfetch          # Mostra info do sistema no terminal
-      - htop               # Monitor de recursos leve
-      - gamemode           # Otimizador de CPU da Feral Interactive
+      - gamescope
+      - mangohud
+      - goverlay
+      - steam-devices
+      - fastfetch
+      - gamemode
 
   - type: default-flatpaks
     configurations:
@@ -29,9 +27,7 @@ modules:
         install:
           - com.valvesoftware.Steam
           - com.heroicgameslauncher.hgl
-          - com.discordapp.Discord
           - org.mozilla.firefox
-          - io.github.arminm.hiddn # Para esconder janelas de background
 
   - type: script
     scripts:
